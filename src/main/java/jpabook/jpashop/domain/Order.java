@@ -22,7 +22,7 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = LAZY) // 여러개의 주문을 한명의 회원이 가질 수 있음
+    @ManyToOne(fetch = LAZY, cascade = CascadeType.ALL) // 여러개의 주문을 한명의 회원이 가질 수 있음
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -30,7 +30,7 @@ public class Order {
     // cascade -> order만 persist를 해도 orderItems에 대한 persist가 자동으로 됨
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch = LAZY)
+    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
