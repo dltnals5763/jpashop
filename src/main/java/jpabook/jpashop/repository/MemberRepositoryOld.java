@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository// Componentscan의 대상으로 만들어 스프링 빈으로 등록해줌
 @RequiredArgsConstructor
-public class MemberRepository {
+public class MemberRepositoryOld {
 
     private final EntityManager em;
 
